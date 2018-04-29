@@ -1,0 +1,50 @@
+*{
+  box-sizing: content-box;
+}
+body{
+  /* background:green; */
+  background: #1e42ff24;
+}
+
+
+section{
+  transition:1s;
+  margin:0 auto;
+
+  width: 100%;
+  text-align:  center;
+
+
+}
+form{
+
+  margin: 15% auto;
+  display: block;
+}
+
+.container{
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+
+}
+
+.results{
+  background-color: blue;
+  border: 2px solid gold;
+}
+
+.container input{
+  border-radius:20px;
+  border-color:orange;
+}
+
+.page{
+  border: 2px solid gold;
+  display:block;
+  width:100%;
+}
+
+.title{
+  text-decoration:underline;
+}

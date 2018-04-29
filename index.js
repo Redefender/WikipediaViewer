@@ -7,7 +7,12 @@ let displayError =()=>{
   $(".results").append('<h1>Error!</h1>');
 };
 
-var query = 'https://en.wikipedia.org/w/api.php?action=query&titles=&prop=info&inprop=url&format=json&origin=*';
+$(".container").first().on("click",function(){
+  $(this).hide();
+  $("form").parent().show();
+})
+
+var query = 'https://en.wikipedia.org/w/api.php?action=query&prop=info&inprop=url&format=json&list=search&origin=*&srsearch=';
 
 (function(){
 
@@ -20,20 +25,48 @@ var query = 'https://en.wikipedia.org/w/api.php?action=query&titles=&prop=info&i
 
     var insertParam = param =>{
 
-      let first = query.substring(0,55);
-      let after  = query.substring(55,query.length);
 
-      return first + param + after;
+      input.placeholder = input.value;
+
+      return query+input.value;
     }
 
 
 
     $.get(insertParam(input.value),function(data){
       console.log(data);
-      var pageNum = Object.keys(data["query"]["pages"])[0]; //page key uknown, manually get (first key within pages)
+      // var pageNum = Object.keys(data["query"]["pages"])[0]; //page key uknown, manually get (first key within pages)
+      let searcher = data.query.search;
+      console.log(searcher);
+      // var title = data["query"]["pages"][pageNum].title;
+      // var url = data["query"]["pages"][pageNum].fullurl;
 
-      $(".results").append('Query:' + '<h2>' + input.value + '</h2> ' + "Title: " + data["query"]["pages"][pageNum].title);
-      $(".results").append('Query:' + '<h2>' + input.value + '</h2> ' + "Link: " + data["query"]["pages"][pageNum].fullurl);
+      let returnString = '';
+      returnString+= 'numpages: ' + searcher.length;
+
+      //put them in neat objects;
+      function page(title, wordcount,snippet){
+        this.title = title;
+        this.wordcount = wordcount;
+        this.snippet = snippet;
+      }
+      for(i=0;i<searcher.length;i++){
+        returnString+='<div class="page">';
+        returnString+= '<div class="title">' + searcher[i].title + '</div>';
+        returnString+='<br>' + searcher[i].wordcount;
+        returnString+='<br> ' + searcher[i] .snippet + '</div>';
+        returnString+= '<div style="clear:both;"></div>';
+
+
+      }
+      returnString+='<br>';
+      //
+      // let returnString = '<div class="results"><h2></h2>Title: ' + title + '<br>';
+      // returnString += '<a target="_blank" href= ' + url + ' ><h2></h2>Link: ' + url + '</a></div>';
+
+      $('#results').append(returnString);
+      $("#results").show();
+      // $('#results').show().append(returnString);
 
     })
     .error(function(){
@@ -41,32 +74,9 @@ var query = 'https://en.wikipedia.org/w/api.php?action=query&titles=&prop=info&i
     });
 
 
-    // $.ajax({
-    //   dataType:"json",
-    //   type: 'GET',
-    //   url: query,
-    //   error: function(data){
-    //     console.log('in sucess',data);
-    //     displayError();
-    //     //get individual article
-    //     //put each article in its own "set, including title, link."
-    //   },
-    //   success: function(data){
-    //     console.log('in sucess',data);
-    //     display();
-    //     //get individual article
-    //     //put each article in its own "set, including title, link."
-    //   },
-    //   complete: function(){
-    //     console.log('queyr',query);
-    //   }
-    //
-    // });
+
 
   });
-
-
-
 
 
 

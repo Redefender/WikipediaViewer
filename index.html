@@ -8,37 +8,52 @@
   src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
   </script>
 
+  <link rel="stylesheet" href="styles.css">
+
   <title>Wikipedia Viewer</title>
 
 </head>
 
 <body>
-    <header>
-      <div class="container">
-        <h1>Knowledge At Your Fingertips...</h1>
-      </div>
-    </header>
+    <div class="queryer">
 
-    <section>
-      <div class="container">
-        <h3>Explore with me...</h3>
 
-        <form id="form">
-          <input id="query" type="text" placeholder="Search Wikipedia...."></input>
-          <input type="button"  value="Submit" id="submit"></input>
-        </form>
-      </div>
-    </section>
+        <div class="container" style="margin: 0 auto;">
+          <img src="./img/transparent-magnifier.png" style="margin:0 auto; height:20%; width:20%;" >
+        </div>
 
-    <section>
-      <div class="container">
+
+
+
+          <div class="container" style="display:none; ">
+
+
+            <form id="form">
+              <input id="query" type="text" placeholder="Search Wikipedia...."></input>
+              <input type="button"  value="Submit" id="submit"></input>
+            </form>
+          </div>
+    </div>
+
+
+
+
+  <div class="outputter">
+
+
+
+
+
+
+    <section >
+
+      <div class="container" id="results" style="display:none;">
       <h3>Results:</h3>
-      <div class="results">
-
-      </div>
+    </div>
     </section>
+  </div>
 
-  <div id="hi"></hi>
+
   <script src="index.js"></script>
 </body>
 </html>
