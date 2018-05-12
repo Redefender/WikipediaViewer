@@ -7,16 +7,24 @@ let displayError =()=>{
   $(".results").append('<h1>Error!</h1>');
 };
 
+// $("#magnifier").click(e=>{
+//
+// });
+
 $(".container").first().on("click",function(){
-  $(this).hide();
-  $("form").parent().show();
+  // $(this).hide();
+  $("#magnifier").animate({height:"toggle"},500,function(){
+    $(this).css("display","none");
+    $("form").parent().show();
+  });
+
 })
 
 let question = document.querySelector("#question");
 question.addEventListener("hover",function(){
 
 });
-console.log(question);
+
 
 var query = 'https://en.wikipedia.org/w/api.php?action=query&prop=info&inprop=url&format=json&list=search&origin=*&srsearch=';
 
@@ -27,14 +35,14 @@ var query = 'https://en.wikipedia.org/w/api.php?action=query&prop=info&inprop=ur
 
   input.addEventListener("focus",function(e){
     e.preventDefault();
+
+
   });
 
 
   form.addEventListener("click",function(e){
-    console.log('submitted',e);
-
+    $(".page").remove();
     var insertParam = param =>{
-
 
       input.placeholder = input.value;
 
@@ -57,7 +65,7 @@ var query = 'https://en.wikipedia.org/w/api.php?action=query&prop=info&inprop=ur
 
         // add attributes
         title.innerHTML = searcher[i].title;
-        title.class = 'title';
+        title.className = 'title';
 
         snippet.innerHTML = searcher[i].snippet;
 
@@ -80,7 +88,7 @@ var query = 'https://en.wikipedia.org/w/api.php?action=query&prop=info&inprop=ur
 
       }
 
-      $("#results").show();
+      $("#results").slideDown();
 
     })
     .error(function(){

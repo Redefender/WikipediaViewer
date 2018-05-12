@@ -9,7 +9,7 @@
   </script>
 
   <link rel="stylesheet" href="styles.css">
-
+  <link rel="icon" href="img/wikipedia.png">
   <title>Wikipedia Viewer</title>
 
 </head>
@@ -26,7 +26,7 @@
 
 
         <div class="container" style="margin: 0 auto;">
-          <img src="./img/transparent-magnifier.png" style="margin:0 auto; height:20%; width:20%;" >
+          <img src="./img/transparent-magnifier.png"  id="magnifier" style="margin:0 auto; height:20%; width:20%;" >
         </div>
 
 
@@ -36,7 +36,9 @@
 
 
             <form id="form">
-              <input id="query"  style="font-size:24px; font-family: width:300px;line-height:35px; "type="text" placeholder="Search Wikipedia...." ></input>
+              <input id="query"  style="font-size:24px; width:300px;line-height:35px; "type="text" placeholder="Search Wikipedia...." >
+
+              </input>
               <input type="button"  value="Submit" id="submit"></input>
             </form>
           </div>
@@ -55,7 +57,7 @@
     <section >
 
       <div class="container" id="results" style="display:none;">
-  
+
     </div>
     </section>
   </div>

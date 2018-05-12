@@ -1,16 +1,27 @@
 *{
   box-sizing: content-box;
+  font-family:  arial sans-serif;
 }
 body{
   /* background:green; */
   background: #1e42ff24;
 }
 
+/* #magnifier:focus{
+  transform:scale(0,0);
+  transition:2s;
+} */
+
 input:focus{
   outline:none;
-  background:yellow;
+  background:#ffff4d;
   text:white;
 }
+
+input[type="button"]:focus{
+  background:#f3e6e6;
+}
+
 
 section{
   transition:1s;
@@ -60,6 +71,7 @@ form{
   background-color:#2b92d8;
   height: 150%;
   line-height: 35px;
+  font-size:110%;
 }
 
 .page:hover{
@@ -67,5 +79,6 @@ form{
 }
 
 .title{
+  font-size:120%;
   text-decoration:underline;
 }
