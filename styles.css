@@ -6,6 +6,11 @@ body{
   background: #1e42ff24;
 }
 
+input:focus{
+  outline:none;
+  background:yellow;
+  text:white;
+}
 
 section{
   transition:1s;
@@ -22,6 +27,10 @@ form{
   display: block;
 }
 
+#question:hover{
+  cursor:pointer;
+}
+
 .container{
   height: 100%;
   margin: 0 auto;
@@ -34,15 +43,27 @@ form{
   border: 2px solid gold;
 }
 
+#results{
+  display:block;
+}
 .container input{
   border-radius:20px;
   border-color:orange;
 }
 
 .page{
+  margin:0 auto;
   border: 2px solid gold;
   display:block;
-  width:100%;
+  width:80%;
+  cursor:pointer;
+  background-color:#2b92d8;
+  height: 150%;
+  line-height: 35px;
+}
+
+.page:hover{
+  background-color: turquoise;
 }
 
 .title{
